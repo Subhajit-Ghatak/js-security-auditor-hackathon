@@ -21,6 +21,10 @@ const openai = new OpenAI({
 });
 
 // Create the endpoint that React will talk to
+app.get('/', (req, res) => {
+  res.send('JS Guard API is running perfectly!');
+});
+
 app.post('/api/audit', async (req, res) => {
   const { code } = req.body;
   
