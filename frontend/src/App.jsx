@@ -9,7 +9,7 @@ export default function App() {
   const handleAudit = async () => {
     setLoading(true);
     try {
-      const res = await fetch('https://js-security-auditor-hackat-git-6cef0f-subhajit-ghataks-projects.vercel.app/api/audit', {
+      const res = await fetch('https://js-security-auditor-hackathon-c5x6n1xho.vercel.app/api/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ code: inputCode })
