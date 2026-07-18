@@ -20,7 +20,7 @@ app.use(express.json());
 
 // Initialize the OpenAI client using your hidden key
 const openai = new OpenAI({ 
-  baseURL: "https://models.github.ai/inference", //new line added
+  baseURL: "https://models.github.ai/inference", 
   apiKey: process.env.OPENAI_API_KEY 
 });
 
@@ -43,7 +43,6 @@ app.post('/api/audit', async (req, res) => {
       messages: [
         { 
           role: "system", 
-          // This is the strict prompt that forces OpenAI to return perfect JSON
           content: "You are a paranoid, hyper-critical Application Security Engineer. Analyze the user's code snippet. If there is ANY security flaw, bad practice, hardcoded secret, unvalidated input, or vulnerability, you MUST set 'isVulnerable' to true. Do not be lenient. Respond ONLY with a single JSON object. Do not include markdown formatting or code blocks. JSON Schema: { \"isVulnerable\": true, \"vulnerabilityType\": \"Name of flaw\", \"severity\": \"High\", \"explanation\": \"2-sentence breakdown of the vulnerability.\", \"secureCode\": \"The fully rewritten, secure code string.\" }"
         },
         { 
@@ -51,7 +50,6 @@ app.post('/api/audit', async (req, res) => {
           content: `Audit this code:\n\n${code}` 
         }
       ],
-      // This tells the OpenAI API to strictly format the response as a JSON object
       response_format: { type: "json_object" } 
     });
 
@@ -67,14 +65,8 @@ app.post('/api/audit', async (req, res) => {
   }
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => console.log("Server running"));
-}
-export default app;
-
+// Start the server cleanly for a traditional environment like Render
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running perfectly on port ${PORT}`);
 });
