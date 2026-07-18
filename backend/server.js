@@ -9,7 +9,11 @@ dotenv.config();
 const app = express();
 
 // Allow the React frontend to communicate with this backend securely
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}));
 
 // Allow the server to read JSON data sent from the frontend
 app.use(express.json());
