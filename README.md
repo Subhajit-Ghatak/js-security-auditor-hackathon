@@ -6,6 +6,13 @@ Built as a submission for the **NamasteDev Hackathon**.
 
 ---
 
+## 🚀 Live Demo
+
+*   **Frontend (Vercel):** [Add your Vercel URL here]
+*   **Backend (Render):** `https://js-guard-api.onrender.com`
+
+---
+
 ## 🚀 Features
 
 *   🤖 **AI-Driven Static Analysis**: Leverages OpenAI's GPT-4o architecture to act as a paranoid, zero-tolerance Application Security Engineer.
@@ -21,11 +28,13 @@ Built as a submission for the **NamasteDev Hackathon**.
 *   **React** (Vite framework)
 *   **Tailwind CSS v4** (Utility-first styling)
 *   **Lucide React** (Modern, lightweight iconography)
+*   **Deployment:** Vercel
 
 ### Backend
 *   **Node.js & Express** (Server architecture)
 *   **OpenAI SDK** (AI orchestration via GitHub Models Inference Engine)
 *   **Dotenv** (Environment variable management)
+*   **Deployment:** Render
 
 ---
 
@@ -34,6 +43,12 @@ Built as a submission for the **NamasteDev Hackathon**.
 To comply with the official hackathon criteria of utilizing OpenAI tech while maintaining a zero-cost development workflow, this application routes its OpenAI SDK requests through the **GitHub Models Free Inference Tier**. 
 
 By redirecting the SDK client base URL to `https://models.github.ai/inference`, the application harnesses production-grade GPT-4o models entirely through a standard GitHub Personal Access Token, completely bypassing OpenAI API quota restrictions.
+
+---
+
+## ⚠️ Important Note for Evaluators
+
+This project uses a free-tier Render backend. **If the app has been inactive for 15+ minutes, the backend server will spin down.** The very first audit request you make may take **30-50 seconds** to process while the server wakes up. Subsequent requests will be incredibly fast.
 
 ---
 
@@ -46,7 +61,7 @@ By redirecting the SDK client base URL to `https://models.github.ai/inference`, 
 ### 1. Repository Setup
 Clone the repository and navigate into the root directory:
 ```bash
-git clone https://github.com/YOUR_USERNAME/js-security-auditor.git
+git clone [https://github.com/YOUR_USERNAME/js-security-auditor.git](https://github.com/YOUR_USERNAME/js-security-auditor.git)
 cd js-security-auditor
 ```
 
