@@ -10,12 +10,12 @@ export default function App() {
     setLoading(true);
     try {
       const res = await fetch('https://js-guard-api.onrender.com/api/audit', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ code: inputCode }), // or whatever your state variable is called
-});
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code: inputCode }), // or whatever your state variable is called
+      });
       const data = await res.json();
       setResult(data);
     } catch (err) {
@@ -27,7 +27,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 p-6">
       <header className="flex items-center gap-3 border-b border-slate-800 pb-4 mb-6">
-        <Shield className="w-8 h-8 text-emerald-400"/>
+        <Shield className="w-8 h-8 text-emerald-400" />
         <h1 className="text-2xl font-bold">JS Guard: AI Security Auditor</h1>
       </header>
 
@@ -58,28 +58,28 @@ export default function App() {
                 <div className="flex items-center gap-2 mb-3">
                   {result.isVulnerable ? (
                     <span className="flex items-center gap-1 bg-red-950 text-red-400 text-xs px-2 py-1 rounded border border-red-800">
-                      <AlertTriangle className="w-3.5 h-3.5"/> {result.vulnerabilityType} ({result.severity})
+                      <AlertTriangle className="w-3.5 h-3.5" /> {result.vulnerabilityType} ({result.severity})
                     </span>
                   ) : (
                     <span className="flex items-center gap-1 bg-emerald-950 text-emerald-400 text-xs px-2 py-1 rounded border border-emerald-800">
-                      <CheckCircle className="w-3.5 h-3.5"/> Code Appears Secure
+                      <CheckCircle className="w-3.5 h-3.5" /> Code Appears Secure
                     </span>
                   )}
                 </div>
                 <p className="text-sm text-slate-300 mb-4">{result.explanation}</p>
-                
+
                 <label className="text-xs text-slate-500 block mb-1 font-semibold">REMEDIATED SECURE CODE</label>
                 <pre className="bg-slate-900 p-4 rounded border border-slate-800 text-sm font-mono text-emerald-300 overflow-x-auto max-h-64 whitespace-pre-wrap">
                   {result.secureCode || '// No changes required'}
                 </pre>
               </div>
-              
+
               {result.secureCode && (
                 <button
                   onClick={() => navigator.clipboard.writeText(result.secureCode)}
                   className="mt-4 flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 py-2 rounded transition-colors text-sm"
                 >
-                  <Copy className="w-4 h-4"/> Copy Remediated Code
+                  <Copy className="w-4 h-4" /> Copy Remediated Code
                 </button>
               )}
             </div>
