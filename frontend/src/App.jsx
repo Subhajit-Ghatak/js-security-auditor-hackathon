@@ -9,11 +9,13 @@ export default function App() {
   const handleAudit = async () => {
     setLoading(true);
     try {
-      const res = await fetch('https://js-security-auditor-hackathon-c5x6n1xho.vercel.app/api/audit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: inputCode })
-      });
+      const res = await fetch('https://js-guard-api.onrender.com/api/audit', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ code: inputCode }), // or whatever your state variable is called
+});
       const data = await res.json();
       setResult(data);
     } catch (err) {
