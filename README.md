@@ -6,12 +6,7 @@ Built as a submission for the **NamasteDev Hackathon**.
 
 ---
 
-## 🚀 Live Demo
 
-*   **Frontend (Vercel):** [Add your Vercel URL here]
-*   **Backend (Render):** `https://js-guard-api.onrender.com`
-
----
 
 ## 🚀 Features
 
